@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyPeek - Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 id="site-title">SkyPeek 🌤️</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('saved-cities')">Saved Cities</a></li>
+                <li><a href="#" onclick="showSection('forecast')">Weather Forecast</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+                <li><a href="#" onclick="showSection('settings')">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div id="weather-wrapper">
+                <div id="weather-search">
+                    <input id="search" type="text" placeholder="Search by city">
+                    <button id="submit" onclick="fetchWeather()">SEARCH</button>
+                </div>
+                <div id="weather-data"></div>
+            </div>
+        </section>
+
+        <!-- Saved Cities Section -->
+        <section id="saved-cities" class="section">
+            <h2>Saved Cities</h2>
+            <div id="saved-city-list"></div>
+        </section>
+
+        <!-- Weather Forecast Section -->
+<section id="forecast" class="section">
+  <h2>Weather Forecast</h2>
+  <div id="forecast-search">
+      <input id="forecast-city" type="text" placeholder="Enter city">
+      <button onclick="fetchForecast()">Get Forecast</button>
+  </div>
+  <div id="forecast-data"></div>
+</section>
+
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>About This App</h2>
+            <p>SkyPeek is a pixel-style weather app that provides real-time weather information.</p>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section">
+            <h2>Settings</h2>
+            <button id="unit-toggle">Click to Change (°C)</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made by Nadeeha Mapa Shoukat ❤️</p>
+    </footer>
+</body>
+</html>

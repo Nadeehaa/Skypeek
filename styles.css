@@ -1,0 +1,175 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+
+#site-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: yellow;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: orange;
+}
+
+/* Main Content */
+main {
+  margin-top: 80px;
+  width: 90%;
+  max-width: 600px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 80vh; /* Added to prevent footer overlap */
+  overflow-y: auto;
+}
+
+/* Weather Search */
+#weather-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#search {
+  padding: 10px;
+  font-size: 14px;
+  width: 65%;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  border: 2px solid yellow;
+  background: black;
+  color: yellow;
+}
+
+#submit {
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  background: yellow;
+  border: 2px solid yellow;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#submit:hover {
+  background: black;
+  color: yellow;
+}
+
+/* Sections */
+.section {
+  display: none;
+  padding: 20px;
+}
+
+.section.active {
+  display: block;
+}
+
+/* Footer */
+footer {
+  position: relative; /* Changed from absolute */
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 0;
+}
+button {
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-size: 12px;
+  border: 2px solid yellow;
+  background: black;
+  color: yellow;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: yellow;
+  color: black;
+}
+#forecast-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#forecast-city {
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  border: 2px solid yellow;
+  background: black;
+  color: yellow;
+}
+
+.forecast-day {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.forecast-day h4 {
+  font-size: 16px;
+  color: yellow;
+}
+
+.forecast-day img {
+  width: 50px;
+  height: 50px;
+}
