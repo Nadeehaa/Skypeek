@@ -1,18 +1,21 @@
 // API Key (Replace with your actual API key)
 const API_KEY = '2a717e6ef003f58a9617f34e96514d9f';
 
-// Function to Fetch Current Weather
+// Function to Fetch Weather
 async function fetchWeather() {
     const city = document.getElementById('search').value;
     if (!city) return alert("Enter a city!");
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-    
+
     try {
         const response = await fetch(url);
         const data = await response.json();
 
         if (data.cod !== 200) throw new Error(data.message);
+
+        // Detect Extreme Weather Alerts
+        let alertMessage = checkExtremeWeather(data.weather[0].id);
 
         document.getElementById('weather-data').innerHTML = `
             <h2>${data.name}, ${data.sys.country}</h2>
@@ -20,13 +23,50 @@ async function fetchWeather() {
             <p>${data.weather[0].description}</p>
             <p>🌡️ ${data.main.temp}°C</p>
             <button onclick="saveCity('${data.name}')">Save City</button>
+            ${alertMessage ? `<p class="alert">${alertMessage}</p>` : ""}
         `;
 
-        fetchForecast(city); // Fetch weather forecast when city is searched
+        // Show Alert Pop-up if needed
+        if (alertMessage) {
+            alert(alertMessage);
+        }
 
     } catch (error) {
         alert("City not found!");
     }
+}
+
+// Function to Check for Extreme Weather Conditions
+function checkExtremeWeather(weatherCode) {
+    const extremeConditions = {
+        200: "⚠️ Thunderstorm with Light Rain! Stay safe!",
+        201: "⚠️ Thunderstorm with Rain! Stay indoors!",
+        202: "⚠️ Severe Thunderstorm with Heavy Rain! Avoid going outside!",
+        210: "⚠️ Light Thunderstorm detected!",
+        211: "⚠️ Thunderstorm Warning!",
+        212: "⚠️ Heavy Thunderstorm! Seek shelter!",
+        221: "⚠️ Irregular Thunderstorm - Dangerous conditions!",
+        230: "⚠️ Thunderstorm with Drizzle!",
+        231: "⚠️ Severe Storm Alert!",
+        232: "⚠️ Extreme Thunderstorm Warning!",
+        300: "⚠️ Light Drizzle - Roads may be slippery!",
+        500: "🌧️ Light Rain - Carry an umbrella!",
+        501: "🌧️ Moderate Rainfall!",
+        502: "⚠️ Heavy Rain Warning!",
+        503: "⚠️ Extreme Rainfall! Possible flooding!",
+        504: "⚠️ Heavy Storm! Stay indoors!",
+        511: "⚠️ Freezing Rain! Roads may be icy!",
+        520: "⚠️ Heavy Drizzle!",
+        900: "⚠️ Tornado Alert! Seek shelter immediately!",
+        901: "⚠️ Tropical Storm Alert!",
+        902: "⚠️ Hurricane Warning! Take precautions!",
+        903: "❄️ Extreme Cold Warning!",
+        904: "🔥 Extreme Heat Alert! Stay hydrated!",
+        905: "💨 Windstorm Warning!",
+        906: "⚠️ Hailstorm Alert!",
+    };
+
+    return extremeConditions[weatherCode] || null;
 }
 
 // Function to Save City
