@@ -35,40 +35,6 @@ async function fetchWeather() {
         alert("City not found!");
     }
 }
-
-// Function to Check for Extreme Weather Conditions
-function checkExtremeWeather(weatherCode) {
-    const extremeConditions = {
-        200: "⚠️ Thunderstorm with Light Rain! Stay safe!",
-        201: "⚠️ Thunderstorm with Rain! Stay indoors!",
-        202: "⚠️ Severe Thunderstorm with Heavy Rain! Avoid going outside!",
-        210: "⚠️ Light Thunderstorm detected!",
-        211: "⚠️ Thunderstorm Warning!",
-        212: "⚠️ Heavy Thunderstorm! Seek shelter!",
-        221: "⚠️ Irregular Thunderstorm - Dangerous conditions!",
-        230: "⚠️ Thunderstorm with Drizzle!",
-        231: "⚠️ Severe Storm Alert!",
-        232: "⚠️ Extreme Thunderstorm Warning!",
-        300: "⚠️ Light Drizzle - Roads may be slippery!",
-        500: "🌧️ Light Rain - Carry an umbrella!",
-        501: "🌧️ Moderate Rainfall!",
-        502: "⚠️ Heavy Rain Warning!",
-        503: "⚠️ Extreme Rainfall! Possible flooding!",
-        504: "⚠️ Heavy Storm! Stay indoors!",
-        511: "⚠️ Freezing Rain! Roads may be icy!",
-        520: "⚠️ Heavy Drizzle!",
-        900: "⚠️ Tornado Alert! Seek shelter immediately!",
-        901: "⚠️ Tropical Storm Alert!",
-        902: "⚠️ Hurricane Warning! Take precautions!",
-        903: "❄️ Extreme Cold Warning!",
-        904: "🔥 Extreme Heat Alert! Stay hydrated!",
-        905: "💨 Windstorm Warning!",
-        906: "⚠️ Hailstorm Alert!",
-    };
-
-    return extremeConditions[weatherCode] || null;
-}
-
 // Function to Save City
 function saveCity(city) {
     let cities = JSON.parse(localStorage.getItem('savedCities')) || [];
