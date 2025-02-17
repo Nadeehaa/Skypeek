@@ -173,11 +173,4 @@ button:hover {
   width: 50px;
   height: 50px;
 }
-.alert {
-    color: red;
-    font-weight: bold;
-    background: yellow;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-}
+
